@@ -1,0 +1,22 @@
+<div class="card" style="width: 18rem;" *ngFor="let w of weatherDto" [@fadeIn]="animationState">
+    <img class="card-img-top" src="{{w.conditionCurrentIcon}}" alt="Card image cap">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{w.locationName}} {{w.locationCountry}}</li>
+      <li class="list-group-item">{{w.currentTemp_c}} °C</li>
+      <li class="list-group-item">{{w.conditionCurrentText}}</li>
+    </ul>
+  </div>
+  <div class="input-group mb-9 d-flex justify-content-center">
+    <div class="input-group-prepend">
+      <button (click)="getWeather(cityName)"  class="btn btn-outline-secondary" type="button">City Name</button>
+    </div>
+    <input  [(ngModel)]="cityName" type="text" class="form-control-mb2" placeholder="" aria-label="" aria-describedby="basic-addon1" >
+  </div>
+  <div class="card" style="width: 18rem;" [@fadeIn]="animationState" *ngIf="singleWeather.locationName!= null && animationState "  >
+    <img class="card-img-top"  src="{{singleWeather.conditionCurrentIcon}}" alt="Card image cap">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{singleWeather.locationName}} {{singleWeather.locationCountry}}</li>
+      <li class="list-group-item">{{singleWeather.currentTemp_c}} °C</li>
+      <li class="list-group-item">{{singleWeather.conditionCurrentText}}</li>
+    </ul>
+  </div>
